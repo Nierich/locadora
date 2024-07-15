@@ -6,7 +6,7 @@
                 <div class="card-header">Bem-Vindo</div>
 
                 <div class="card-body">
-                    <p>Aprensentar indicadores do sistema</p>
+                    <p>Apresentar indicadores do sistema</p>
                 </div>
             </div>
         </div>
