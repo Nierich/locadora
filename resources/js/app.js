@@ -6,6 +6,17 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import { createStore } from 'vuex';
+
+/**
+ * Create a Vuex store.
+ */
+const store = createStore({
+    state: {
+        item: {},
+        transacao:{ status:'', mensagem: '', dados: ''}
+    }
+});
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,6 +26,9 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
+/**
+ * Import and register Vue components.
+ */
 import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 import Login from './components/Login.vue';
@@ -33,6 +47,8 @@ import Modal from './components/Modal.vue';
 app.component('modal-component', Modal);
 import Alert from './components/Alert.vue';
 app.component('alert-component', Alert);
+import Paginate from './components/Paginate.vue';
+app.component('paginate-component', Paginate);
 
 /**
  * The following block of code may be used to automatically register your
@@ -41,10 +57,14 @@ app.component('alert-component', Alert);
  *
  * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
  */
-
 // Object.entries(import.meta.glob('./**/*.vue', { eager: true })).forEach(([path, definition]) => {
 //     app.component(path.split('/').pop().replace(/\.\w+$/, ''), definition.default);
 // });
+
+/**
+ * Add the Vuex store to the Vue application.
+ */
+app.use(store);
 
 /**
  * Finally, we will attach the application instance to a HTML element with
